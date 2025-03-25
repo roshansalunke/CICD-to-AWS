@@ -49,9 +49,16 @@ jobs:
       - name: Deploy to EC2
         run: |
           ssh ubuntu@ec2-54-255-180-152.ap-southeast-1.compute.amazonaws.com << 'EOF'
+          # Change to the app directory or clone if missing
+          if [ ! -d "/var/www/app/.git" ]; then
+            sudo rm -rf /var/www/app
+            git clone https://github.com/roshansalunke/CICD-to-AWS.git /var/www/app
+          fi
+          
           cd /var/www/app
           
           # Pull the latest code
+          git reset --hard origin/main
           git pull origin main
 
           # Install dependencies
