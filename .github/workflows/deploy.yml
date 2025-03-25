@@ -51,7 +51,7 @@ jobs:
           ssh ubuntu@ec2-54-255-180-152.ap-southeast-1.compute.amazonaws.com << 'EOF'
           # Change to the app directory or clone if missing
           if [ ! -d "/var/www/app/.git" ]; then
-            sudo rm -rf /var/www/app
+            sudo su
             git clone https://github.com/roshansalunke/CICD-to-AWS.git /var/www/app
           fi
           
