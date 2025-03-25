@@ -41,7 +41,7 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -o StrictHostKeyChecking=no ec2-user@YOUR_EC2_IP_ADDRESS << 'EOF'
+          ssh -o StrictHostKeyChecking=no ubuntu@ec2-54-255-180-152.ap-southeast-1.compute.amazonaws.com << 'EOF'
           cd /var/www/app
           
           # Pull the latest code
